@@ -39,4 +39,4 @@ exclude:
   - .travis.yml
   - .git
   - functions
-  - /_site/404.html
+  - _site/404.html
