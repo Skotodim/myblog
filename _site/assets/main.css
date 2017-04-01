@@ -109,6 +109,25 @@ pre {
     padding-left: 0; }
 
 /**
+ * Textarea
+ */
+textarea {
+  width: 100%;
+  height: 12em;
+  padding: 6px 7px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #e8e8e8;
+  color: #111;
+  font-size: 15px;
+  letter-spacing: -1px;
+  outline: none;
+  resize: none;
+  overflow: auto; }
+
+/**
  * Wrapper
  */
 .wrapper {
@@ -309,6 +328,15 @@ pre {
     @media screen and (max-width: 800px) {
       .post-content h4 {
         font-size: 18px; } }
+
+.post-comments {
+  margin-bottom: 30px; }
+
+.comment-list {
+  margin-left: 0;
+  list-style: none; }
+  .comment-list > li {
+    margin-bottom: 15px; }
 
 /**
  * Syntax highlighting styles
