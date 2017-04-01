@@ -1,6 +1,4 @@
 
-// TODO : decide if I will use {{page.id || default}} or document.URL before putting data on fbd --> article_id
-
 
 // TODO : note which characters cant be used in article titles (sanitizefirebasekey)
 
@@ -43,7 +41,7 @@ submitButton.addEventListener('click', function() {
 		        var key = firebase.database().ref(commentRef).push().key;
 
         		var updates = {};
-    		    updates[commentRef + key] = commentData; console.log(updates);
+    		    updates[commentRef + key] = commentData;
 
 
     		    return firebase.database().ref().update(updates)
