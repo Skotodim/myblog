@@ -1,10 +1,11 @@
 sudo: false
 
-language: node_js, ruby
+language: node_js
 node_js:
 - "node"
-rvm:
-- 2.3.3
+
+before_install:
+- rvm install 2.3.3
 
 install:
 - npm install -g firebase-tools
