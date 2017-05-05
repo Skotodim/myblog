@@ -33,10 +33,10 @@ firebase.database().ref('blog/article_link/').orderByValue().equalTo(document.UR
                 var li = document.createElement ('li');
                 li.appendChild(document.createTextNode(data.body));
                 ul.appencChild(li);
-            }
-        }
-    }
-}
+            })
+        })
+    })
+})
 
 /**
  * Submit new comment program
