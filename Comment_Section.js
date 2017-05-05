@@ -78,7 +78,7 @@ submitButton.addEventListener('click', function() {
     		    })
         })
     })
-});
+})
 
 function timestampToDate(timestamp) {
     SimpleDateFormat sfd = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
