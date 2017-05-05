@@ -34,8 +34,13 @@ firebase.database().ref('blog/article_link/').orderByValue().equalTo(document.UR
                 var body = data.val().body;
                 var author = data.val().u_id;
 
+                var p1 = document.createElement('p');
+                p1.appendChild(document.createTextNode(body));
+                var p2 = document.createElement('p');
+                p2.appendChild(document.createTextNode('Written by ' + author + ' at ' + date));
                 var li = document.createElement ('li');
-                li.appendChild(document.createTextNode(body + ' writen by ' + author + ' at ' + date));
+                li.appendChild(p1);
+                li.appendChild(p2);
                 ul.appendChild(li);
             })
         })
