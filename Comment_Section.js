@@ -27,7 +27,7 @@ firebase.database().ref('blog/article_link/').orderByValue().equalTo(document.UR
         var article_id = data.key;
 	      var commentRef = 'blog/article_comments/' + article_id + '/';
       
-        firebase.database().ref(commentRef).orderByChild(date_published).once('value', function(data) {
+        firebase.database().ref(commentRef).orderByChild('date_published').once('value', function(data) {
             var ul = document.getElementById('comments');
             data.forEach(function(data) {
                 var li = document.createElement ('li');
