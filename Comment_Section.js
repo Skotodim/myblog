@@ -30,7 +30,7 @@ firebase.database().ref('blog/article_link/').orderByValue().equalTo(document.UR
         firebase.database().ref(commentRef).orderByChild('date_published').once('value', function(data) {
             var ul = document.getElementById('comments');
             data.forEach(function(data) {
-                var date = timestampToDate(data.val().date_published);
+                var date = new Date(data.val().date_published);
                 var body = data.val().body;
                 var author = data.val().u_id;
 
@@ -80,11 +80,13 @@ submitButton.addEventListener('click', function() {
     })
 })
 
+/*
 function timestampToDate(timestamp) {
-    SimpleDateFormat sfd = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
     sfd.format(new Date(timestamp));
-    return sfd;
+    return sdf;
 }
+*/
 
 /*
 function sanitizeFirebaseKey(key) {
