@@ -32,7 +32,7 @@ firebase.database().ref('blog/article_link/').orderByValue().equalTo(document.UR
             data.forEach(function(data) {
                 var li = document.createElement ('li');
                 li.appendChild(document.createTextNode(data.body));
-                ul.appencChild(li);
+                ul.appendChild(li);
             })
         })
     })
