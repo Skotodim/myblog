@@ -30,8 +30,12 @@ firebase.database().ref('blog/article_link/').orderByValue().equalTo(document.UR
         firebase.database().ref(commentRef).orderByChild('date_published').once('value', function(data) {
             var ul = document.getElementById('comments');
             data.forEach(function(data) {
+                var date = timestampToDate(data.val().date_published);
+                var body = data.val().body;
+                var author = data.val().u_id;
+
                 var li = document.createElement ('li');
-                li.appendChild(document.createTextNode(data.val().body));
+                li.appendChild(document.createTextNode(body + ' writen by ' + author + ' at ' + date));
                 ul.appendChild(li);
             })
         })
@@ -56,7 +60,7 @@ submitButton.addEventListener('click', function() {
 		        var commentData = {
 		    	      body: body,
 		    	      date_published: firebase.database.ServerValue.TIMESTAMP,
-		    	      user_id: 'user1'
+		    	      u_id: 'user1'
 		        };
 		        var key = firebase.database().ref(commentRef).push().key;
 
@@ -75,6 +79,13 @@ submitButton.addEventListener('click', function() {
         })
     })
 })   
+
+function timestampToDate(timestamp) {
+    SimpleDateFormat sfd = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+    sfd.format(new Date(timestamp));
+    return sfd;
+}
+
 /*
 function sanitizeFirebaseKey(key) {
 	return key.replace(/[\.\/\$\[\]\x7F\x00-\x1F]/g, "-");
