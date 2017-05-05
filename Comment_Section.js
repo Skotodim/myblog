@@ -19,6 +19,26 @@ var config = {
 firebase.initializeApp(config);
 
 /**
+ * Show all comments
+ */
+
+firebase.database().ref('blog/article_link/').orderByValue().equalTo(document.URL).once('value', function(data) {
+    data.forEach(function(data) {
+        var article_id = data.key;
+	      var commentRef = 'blog/article_comments/' + article_id + '/';
+      
+        firebase.database().ref(commentRef).orderByChild(date_published).once('value', function(data) {
+            var ul = document.getElementById('comments');
+            data.forEach(function(data) {
+                var li = document.createElement ('li');
+                li.appendChild(document.createTextNode(data.body));
+                ul.appencChild(li);
+            }
+        }
+    }
+}
+
+/**
  * Submit new comment program
  */
 
